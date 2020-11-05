@@ -1,7 +1,7 @@
 /*https://uicookies.com/css-buttons/
 https://codepen.io/atloomer/pen/JEaRWX*/
 body {
-  background: #ffffff;
+  background: #fff;
   font-family: sans-serif;
 }
 
@@ -149,4 +149,13 @@ a {
 
 #left-button:hover a {
   right: 150px;
+}
+
+/* GIFs */
+
+.gif {
+  margin-top: -60px;
+  overflow: hidden;
+
+  position: absolute;
 }

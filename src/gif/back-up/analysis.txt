@@ -1,0 +1,34 @@
+http://gifduration.konstochvanligasaker.se/
+
+hand_clicking.gif: 1650 milliseconds
+
+Frame 1: 30 milliseconds
+Frame 2: 30 milliseconds
+Frame 3: 30 milliseconds
+Frame 4: 30 milliseconds
+Frame 5: 30 milliseconds
+Frame 6: 30 milliseconds
+Frame 7: 30 milliseconds
+Frame 8: 30 milliseconds
+Frame 9: 30 milliseconds
+Frame 10: 90 milliseconds
+Frame 11: 30 milliseconds
+Frame 12: 30 milliseconds
+Frame 13: 180 milliseconds
+Frame 14: 30 milliseconds
+Frame 15: 390 milliseconds
+Frame 16: 30 milliseconds
+Frame 17: 30 milliseconds
+Frame 18: 150 milliseconds
+Frame 19: 30 milliseconds
+Frame 20: 30 milliseconds
+Frame 21: 90 milliseconds
+Frame 22: 30 milliseconds
+Frame 23: 30 milliseconds
+Frame 24: 30 milliseconds
+Frame 25: 30 milliseconds
+Frame 26: 30 milliseconds
+Frame 27: 30 milliseconds
+Frame 28: 30 milliseconds
+Frame 29: 30 milliseconds
+Frame 30: 30 milliseconds
