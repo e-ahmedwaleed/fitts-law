@@ -1,25 +1,28 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <script src="src/script.js"></script>
+    <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body>
 
-    <div class="button" id="left-button">
-        <div id="left-arrow"><img src="left_arrow.png" alt="" /></div>
+    <div class="button" id="left-button" onclick="lockButton(this,-1)">
+        <div id="left-arrow"><img src="media/left_arrow.png" alt="" /></div>
         <a href="#"><strong>Left</strong></a>
     </div>
 
-    <div class="button" id="center-button">
+    <div class="button" id="center-button" onclick="lockButton(this,0)">
         <div id="empty"></div>
-        <a href="#">.</a>
+        <a href="#"></a>
     </div>
 
-    <div class="button" id="right-button">
-        <div id="right-arrow"><img src="right_arrow.png" alt="" /></div>
+    <div class="button" id="right-button" onclick="lockButton(this,1)">
+        <div id="right-arrow"><img src="media/right_arrow.png" alt="" /></div>
         <a href="#"><strong>Right</strong></a>
     </div>
+
+    <img src="media/hand_clicking.gif" alt="" width="50px"/>
 
 </body>
 
