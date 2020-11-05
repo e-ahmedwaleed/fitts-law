@@ -1,0 +1,152 @@
+/*https://uicookies.com/css-buttons/
+https://codepen.io/atloomer/pen/JEaRWX*/
+body {
+  background: #2d3142;
+  font-family: sans-serif;
+}
+
+/* Button Styles */
+
+.button {
+  display: inline-flex;
+  height: 40px;
+  width: 150px;
+  border: 2px solid #bfc0c0;
+  margin: 20px 20px 20px 20px;
+  color: #bfc0c0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_buttons_animate3*/
+.button:active {
+  transform: translateY(1px);
+}
+
+a {
+  color: #bfc0c0;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* Center Button */
+
+#center-button {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease-Out;
+}
+
+#center-button a {
+  color: #2d3142;
+  position: relative;
+  transition: background-color 0.3s ease-Out;
+}
+
+#empty {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+#center-button:hover a {
+  color: #bfc0c0;
+  transition: all 0.5s ease-Out;
+}
+
+#center-button:hover {
+  background-color: #bfc0c0;
+  transition: all 0.5s ease-Out;
+}
+
+/* Right Button */
+
+#right-button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#right-button a {
+  position: relative;
+  left: 0;
+  transition: all 0.35s ease-Out;
+}
+
+#right-arrow {
+  width: 100%;
+  height: 100%;
+  background: #bfc0c0;
+  left: -200px;
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease-Out;
+  bottom: 0;
+}
+
+#right-button img {
+  width: 20px;
+  height: auto;
+}
+
+#right-button:hover #right-arrow {
+  left: 0;
+}
+
+#right-button:hover a {
+  left: 150px;
+}
+
+/* Left Button */
+
+#left-button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#left-button a {
+  position: relative;
+  right: 0;
+  transition: all 0.35s ease-Out;
+}
+
+#left-arrow {
+  width: 100%;
+  height: 100%;
+  background: #bfc0c0;
+  left: 200px;
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease-Out;
+  bottom: 0;
+}
+
+#left-button img {
+  width: 20px;
+  height: auto;
+}
+
+#left-button:hover #left-arrow {
+  left: 0px;
+}
+
+#left-button:hover a {
+  right: 150px;
+}
