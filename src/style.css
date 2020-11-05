@@ -155,7 +155,6 @@ a {
 
 .gif {
   margin-top: -60px;
-  overflow: hidden;
-
+  opacity: 0.9;
   position: absolute;
 }

@@ -16,6 +16,12 @@ function lockButton(button, index) {
 
 }
 
+function timeDestroy(gif){
+    sleep(1800).then(() => {
+        gif.parentNode.removeChild(gif);
+    });
+}
+
 // https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
