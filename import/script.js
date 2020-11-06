@@ -4,14 +4,34 @@ var isLoaded = [false, false, false];
 
 function lockButton(button, index) {
     if (isClicked[index]) return;
+
+    switch (index) {
+        case 1: // if right, check center.
+            if (!isClicked[0])
+                return;
+            break;
+        case 2: // if left, check center and right.
+            if (!(isClicked[0] && isClicked[1]))
+                return;
+            break;
+    }
+
     isClicked[index] = true;
 
     button.childNodes[1].style.top = 0;
     button.childNodes[1].style.left = 0;
     button.childNodes[3].text = "";
     button.style.pointerEvents = "none";
+    switch (index) {
+        case 0: // if center, active right.
+            document.getElementsByClassName("button")[2].style.pointerEvents = "all";
+            break;
+        case 1: // if right, active left.
+            document.getElementsByClassName("button")[0].style.pointerEvents = "all";
+            break;
+    }
 
-    if (isClicked[-1] && isClicked[0] && isClicked[1])
+    if (isClicked[0] && isClicked[1] && isClicked[2])
         sleep(500).then(() => {
             location.reload();
         });
@@ -20,18 +40,17 @@ function lockButton(button, index) {
 
 function randomizeButtons() {
     initializeColors();
-    sleep(100).then(() => {
-        var i = 0;
-        for (const button of document.getElementsByClassName("button")) {
-            randomizeSize(button, i);
-            randomizePosition(button, i);
-            i++;
-        }
-        for (const button of document.getElementsByClassName("button")) {
-            button.style.visibility = "visible";
-            button.children[1].style.visibility = "visible";
-        }
-    });
+    var i = 0;
+    for (const button of document.getElementsByClassName("button")) {
+        randomizeSize(button, i);
+        randomizePosition(button, i);
+        i++;
+    }
+    for (const button of document.getElementsByClassName("button")) {
+        button.style.visibility = "visible";
+        button.children[1].style.visibility = "visible";
+    }
+    trackStartPoint();
 }
 
 function initializeColors() {
@@ -68,6 +87,28 @@ function randomizePosition(button, index) {
 
     var randomX = min_width - (button.offsetWidth + 20) + Math.floor(Math.random() * (max_width / 3));
     button.style.left = Math.max(randomX, min_width + 20) + "px";
+}
+
+function trackStartPoint() {
+
+    var hand = document.createElement("IMG");
+    hand.setAttribute("id", "hand_click");
+    hand.setAttribute("class", "gif");
+    hand.setAttribute("src", "media/hand_clicking.gif");
+    hand.setAttribute("style", "visibility: hidden;");
+    hand.setAttribute("onload", "timeDestroy(this)");
+    document.body.appendChild(hand);
+
+    var button = document.getElementById("center-button");
+
+    hand.style.width = button.offsetWidth * .3;
+
+    var x = (parseInt(button.style.left.split("px")[0]) + button.offsetWidth / 1.5 + 20) - hand.offsetWidth / 2;
+    var y = (parseInt(button.style.top.split("px")[0]) + button.offsetHeight / 1.5 + 20) - hand.offsetHeight / 2;
+
+    hand.style.left = x;
+    hand.style.top = y;
+    hand.style.visibility = "visible";
 }
 
 function timeDestroy(gif) {
