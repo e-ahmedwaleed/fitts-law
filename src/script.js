@@ -16,7 +16,7 @@ function lockButton(button, index) {
 
 }
 
-function timeDestroy(gif){
+function timeDestroy(gif) {
     sleep(1800).then(() => {
         gif.parentNode.removeChild(gif);
     });

@@ -8,10 +8,11 @@ body {
 /* Button Styles */
 
 .button {
+  visibility: hidden;
   display: inline-flex;
   height: 40px;
   width: 150px;
-  border: 2px solid #bfc0c0;
+  border: 1px solid #666;
   margin: 20px 20px 20px 20px;
   color: #bfc0c0;
   text-transform: uppercase;
@@ -29,7 +30,7 @@ body {
 }
 
 a {
-  color: #bfc0c0;
+  color: #666;
   text-decoration: none;
   letter-spacing: 1px;
 }
@@ -87,7 +88,7 @@ a {
   width: 100%;
   height: 100%;
   background: #bfc0c0;
-  left: -200px;
+  left: -150px;
   position: absolute;
   padding: 0;
   display: flex;
@@ -128,7 +129,7 @@ a {
   width: 100%;
   height: 100%;
   background: #bfc0c0;
-  left: 200px;
+  left: 150px;
   position: absolute;
   padding: 0;
   display: flex;
@@ -149,12 +150,4 @@ a {
 
 #left-button:hover a {
   right: 150px;
-}
-
-/* GIFs */
-
-.gif {
-  margin-top: -60px;
-  opacity: 0.9;
-  position: absolute;
 }

@@ -1,0 +1,6 @@
+var but = document.getElementById("left-button");
+but.style.top = "100px";
+but.style.left = "100px";
+
+var txt = document.getElementById("right-text");
+txt.style.visibility = "visible";
