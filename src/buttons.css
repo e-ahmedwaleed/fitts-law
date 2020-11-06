@@ -14,7 +14,7 @@ body {
   width: 150px;
   border: 1px solid #666;
   margin: 20px 20px 20px 20px;
-  color: #bfc0c0;
+  background-color: grey;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 0.8em;
@@ -41,7 +41,7 @@ a {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
   overflow: hidden;
   cursor: pointer;
   transition: background-color 0.3s ease-Out;
@@ -66,16 +66,17 @@ a {
 }
 
 #center-button:hover {
-  background-color: #bfc0c0;
-  transition: all 0.5s ease-Out;
+  background-color: #000;
+  transition: background-color 0.3s ease-in;
 }
 
 /* Right Button */
 
 #right-button {
-  position: relative;
+  position: absolute;
   overflow: hidden;
   cursor: pointer;
+  transition: background-color 0.3s ease-Out;
 }
 
 #right-button a {
@@ -114,9 +115,10 @@ a {
 /* Left Button */
 
 #left-button {
-  position: relative;
+  position: absolute;
   overflow: hidden;
   cursor: pointer;
+  transition: background-color 0.3s ease-Out;
 }
 
 #left-button a {
