@@ -89,6 +89,7 @@ function unlockButton(button, index) {
 
 function initializeButtons() {
     initializeColors();
+    checkInitialState();
     randomizeButtons();
 }
 
@@ -97,6 +98,11 @@ var _2D = false;
 function randomizeButtons() {
     var i = 0;
     _2D = is2DEnabled();
+    if (_2D)
+        setCookie("_2D", "1", 1);
+    else
+        setCookie("_2D", "0", 1);
+
     var buttons = document.getElementsByClassName("button")
     for (const button of buttons) {
         isClicked[i] = false;
