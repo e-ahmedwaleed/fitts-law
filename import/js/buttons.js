@@ -36,7 +36,11 @@ function lockButton(button, index) {
             document.getElementsByClassName("button")[1].style.pointerEvents = "all";
             break;
         case 1: // if right, active left.
-            document.getElementsByClassName("button")[2].style.pointerEvents = "all";
+            var button = document.getElementsByClassName("button")[2];
+            button.style.pointerEvents = "all";
+            // Fix mobile bug.
+            button.childNodes[1].attributeStyleMap.delete('left');
+            button.childNodes[3].attributeStyleMap.delete('left');
             break;
     }
 
@@ -75,8 +79,10 @@ function unlockButton(button, index) {
         case 1:
             button.childNodes[3].text = "2";
             break;
-        case 2:
+        case 2: // Fix mobile bug.
             button.childNodes[3].text = "3";
+            button.childNodes[3].style.left = 0;
+            button.childNodes[1].style.left = 500;
             break;
     }
 }
@@ -115,17 +121,17 @@ function initializeColors() {
 
 function randomizeSize(button, index) {
 
-    var max_height = window.innerHeight / 2;
-    var max_width = (window.innerWidth / 4) / (index == 0 ? 2 : 1);
+    var max_width = (window.innerWidth / 4);
 
-    var randomHeight = Math.floor(Math.random() * max_height);
-    button.style.height = Math.max(randomHeight, 25) + "px";
+    button.style.height = window.innerHeight - 200;
 
     var randomWidth = Math.floor(Math.random() * max_width);
     button.style.width = Math.max(randomWidth, 25) + "px";
 
-    if (index == 0)
+    if (index == 0) {
+        button.style.width = window.innerWidth / 8;
         button.style.height = button.style.width;
+    }
 
     button.children[1].style.fontSize = 0.8 * Math.min(button.offsetHeight, button.offsetWidth);
 }
@@ -136,13 +142,20 @@ function randomizePosition(button, index) {
     var max_width = window.innerWidth;
     var min_width = max_width * index / 3;
 
-    var max_height = window.innerHeight - (button.offsetHeight * 2);
+    var max_height = window.innerHeight - button.offsetHeight - 20 - 60;
 
-    var randomY = Math.floor(Math.random() * max_height) - 20;
-    button.style.top = Math.max(randomY, 160) + "px";
+    var randomY = max_height;
+    button.style.top = Math.max(randomY, 140) + "px";
 
     var randomX = min_width - (button.offsetWidth + 20) + Math.floor(Math.random() * (max_width / 3));
     button.style.left = Math.max(randomX, min_width + 20) + "px";
+
+    if (index == 1) {
+        button.style.top = window.innerHeight / 2 - (button.offsetHeight + 20) / 2;
+        button.style.left = window.innerWidth / 2 - (button.offsetWidth + 20) / 2;
+    } else if (index == 2) {
+        button.style.left = Math.max(randomX - 20, min_width + 20) + "px";
+    }
 }
 
 function colorizeButton(button, col) {

@@ -3,20 +3,24 @@
 <head>
 
     <!--SIO-->
+    <meta charset="UTF-8" />
+    <title>Fitts Law Experiment</title>
     <link rel="icon" type="image/png" href="media/favicon.png">
     <meta name="viewport" content="width=device-width">
 
     <!--Javascript-->
-    <script src="import/hints.js"></script>
-    <script src="import/for-php.js"></script>
-    <script src="import/cookies.js"></script>
-    <script src="import/buttons.js"></script>
+    <script src="import/js/hints.js"></script>
+    <script src="import/js/for-php.js"></script>
+    <script src="import/js/cookies.js"></script>
+    <script src="import/js/ui-scripts.js"></script>
+    <script src="import/js/buttons.js"></script>
     <script src="import/piklor/min.js"></script>
     <script src="import/piklor/color-picker.js"></script>
 
     <!--CSS-->
-    <link rel="stylesheet" href="import/hints.css">
-    <link rel="stylesheet" href="import/buttons.css">
+    <link rel="stylesheet" href="import/css/ui-styles.css">
+    <link rel="stylesheet" href="import/css/hints.css">
+    <link rel="stylesheet" href="import/css/buttons.css">
     <link rel="stylesheet" href="import/piklor/custom.css">
     <link rel="stylesheet" href="import/piklor/material-wfont.min.css">
 
@@ -44,6 +48,13 @@
         <div id="left-arrow"><img src="media/left_arrow.png" alt="" /></div>
         <a href="#" style="visibility: hidden;" id="left-text"><strong>3</strong></a>
     </div>
+
+    <div class="tooltip" style="pointer-events: auto;">
+        <img class="raise" id="leaderboard" src="media/trophy.png" onclick="checkUserName()" alt="Leaderboard" /><span
+            class="tooltiptext">Check leaderboard.</span>
+    </div>
+
+    <div id="credits">Copyrights &#169; 2020 Ahmed Waleed</div>
 
 </body>
 
