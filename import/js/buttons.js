@@ -82,7 +82,7 @@ function unlockButton(button, index) {
         case 2: // Fix mobile bug.
             button.childNodes[3].text = "3";
             button.childNodes[3].style.left = 0;
-            button.childNodes[1].style.left = 500;
+            button.childNodes[1].style.left = 2000;
             break;
     }
 }
@@ -92,8 +92,11 @@ function initializeButtons() {
     randomizeButtons();
 }
 
+var _2D = false;
+
 function randomizeButtons() {
     var i = 0;
+    _2D = is2DEnabled();
     var buttons = document.getElementsByClassName("button")
     for (const button of buttons) {
         isClicked[i] = false;
@@ -121,12 +124,15 @@ function initializeColors() {
 
 function randomizeSize(button, index) {
 
-    var max_width = (window.innerWidth / 4);
+    var max_width = (window.innerWidth / 4) - 20;
 
     button.style.height = window.innerHeight - 200;
 
     var randomWidth = Math.floor(Math.random() * max_width);
     button.style.width = Math.max(randomWidth, 25) + "px";
+
+    if (_2D)
+        button.style.height = Math.max(Math.floor(Math.random() * (window.innerHeight - 200)), 30);
 
     if (index == 0) {
         button.style.width = window.innerWidth / 8;
@@ -145,6 +151,8 @@ function randomizePosition(button, index) {
     var max_height = window.innerHeight - button.offsetHeight - 20 - 60;
 
     var randomY = max_height;
+    if (_2D)
+        randomY = Math.floor(Math.random() * max_height);
     button.style.top = Math.max(randomY, 140) + "px";
 
     var randomX = min_width - (button.offsetWidth + 20) + Math.floor(Math.random() * (max_width / 3));

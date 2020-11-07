@@ -1,6 +1,10 @@
 function trackStartPoint() {
 
-    var hand = document.createElement("IMG");
+    var hand = document.getElementsByClassName("gif")[0];
+    if (hand != null && hand.parentNode != null)
+        hand.parentNode.removeChild(hand);
+
+    hand = document.createElement("IMG");
     hand.setAttribute("class", "gif");
     hand.setAttribute("style", "visibility: hidden;");
     hand.setAttribute("onload", "timeDestroy(this)");

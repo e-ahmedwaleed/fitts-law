@@ -28,30 +28,60 @@
 
 <body onload="initializeButtons()">
 
+    <script>
+        window.addEventListener('resize', refresh);
+        function refresh() { location.reload(); }
+    </script>
+
     <div class=" picker-wrapper" style="width: 372px;">
         <button class="btn btn-default">Select color</button>
         <div class="color-picker">
         </div>
     </div>
 
-    <div class="button" id="center-button" onclick="lockButton(this,0)" style="user-select: none;">
+    <label id="enable_2D_label">
+        2D Experiment:
+    </label>
+
+    <label class="switch" id="enable_2D">
+        <input type="checkbox" onchange="randomizeButtons()">
+        <span class="slider round"></span>
+    </label>
+
+    <div class="tooltip" style="pointer-events: auto;">
+        <img class="raise" id="leaderboard" src="media/trophy.png" onclick="openLeaderboards()"
+            alt="Leaderboard" /><span class="tooltiptext">Check leaderboards.</span>
+    </div>
+
+    <div id="Leaderboard_Modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title">Leaderboards</p>
+            </div>
+            <div class="modal-body">
+                <br>
+                <ul>
+                    <li class="modal-inside">Coming soon ...</li>
+                    <!--div class="li">-</div-->
+                    <br>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="button" id="center-button" onclick="lockButton(this,0)">
         <div id="empty"><img src="media/dot.png" alt="" /></div>
         <a href="#" style="visibility: hidden;"><strong>1</strong></a>
     </div>
 
-    <div class="button" id="right-button" onclick="lockButton(this,1)" style="user-select: none;">
+    <div class="button" id="right-button" onclick="lockButton(this,1)">
         <div id="right-arrow"><img src="media/right_arrow.png" alt="" /></div>
         <a href="#" style="visibility: hidden;" id="right-text"><strong>2</strong></a>
     </div>
 
-    <div class=" button" id="left-button" onclick="lockButton(this,2)" style="user-select: none;">
+    <div class=" button" id="left-button" onclick="lockButton(this,2)">
         <div id="left-arrow"><img src="media/left_arrow.png" alt="" /></div>
         <a href="#" style="visibility: hidden;" id="left-text"><strong>3</strong></a>
-    </div>
-
-    <div class="tooltip" style="pointer-events: auto;">
-        <img class="raise" id="leaderboard" src="media/trophy.png" onclick="checkUserName()" alt="Leaderboard" /><span
-            class="tooltiptext">Check leaderboard.</span>
     </div>
 
     <div id="credits">Copyrights &#169; 2020 Ahmed Waleed</div>
