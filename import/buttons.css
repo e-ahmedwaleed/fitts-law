@@ -43,7 +43,7 @@ a {
 #empty {
   width: 100%;
   height: 100%;
-  top: -350px;
+  top: -500px;
   position: absolute;
   padding: 0;
   display: flex;
@@ -56,7 +56,7 @@ a {
   height: auto;
 }
 #center-button:hover a {
-  top: 350px;
+  top: 500px;
 }
 #center-button:hover #empty {
   top: 0;
@@ -74,7 +74,7 @@ a {
 #right-arrow {
   width: 100%;
   height: 100%;
-  left: -350px;
+  left: -500px;
   position: absolute;
   padding: 0;
   display: flex;
@@ -91,7 +91,7 @@ a {
   left: 0;
 }
 #right-button:hover a {
-  left: 350px;
+  left: 500px;
 }
 #left-button {
   position: absolute;
@@ -106,7 +106,7 @@ a {
 #left-arrow {
   width: 100%;
   height: 100%;
-  left: 350px;
+  left: 500px;
   position: absolute;
   padding: 0;
   display: flex;
@@ -123,5 +123,5 @@ a {
   left: 0;
 }
 #left-button:hover a {
-  right: 350px;
+  right: 500px;
 }

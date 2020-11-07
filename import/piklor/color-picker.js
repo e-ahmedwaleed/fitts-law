@@ -13,6 +13,7 @@ window.addEventListener("load", function () {
 
     pk.colorChosen(function (col) {
         for (const button of document.getElementsByClassName("button")) {
+            setCookie("prefColor", col, 1);
             colorizeButton(button, col);
         }
     });

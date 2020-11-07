@@ -42,14 +42,22 @@ function lockButton(button, index) {
 
     if (isClicked[0] && isClicked[1] && isClicked[2])
         sleep(500).then(() => {
-            console.log(window.innerHeight + "," + window.innerWidth);
-            // https://stackoverflow.com/questions/2024198/how-many-seconds-between-two-dates
-            console.log((midTime.getTime() - startTime.getTime()) + "," + (endTime.getTime() - midTime.getTime()) + "," + (endTime.getTime() - startTime.getTime()));
+            var resolution = window.innerHeight + "," + window.innerWidth;
 
+            // https://stackoverflow.com/questions/2024198/how-many-seconds-between-two-dates
+            var times = [" ", " ", " "];
+            times[0] = midTime.getTime() - startTime.getTime();
+            times[1] = endTime.getTime() - midTime.getTime()
+            times[2] = endTime.getTime() - startTime.getTime()
+
+            var i = 0;
+            var buttonsProperties = [" ", " ", " "];
             for (const button of document.getElementsByClassName("button")) {
-                console.log(button.style.top + "," + button.style.left + "," + button.offsetHeight + "," + button.offsetWidth);
+                buttonsProperties[i] = button.style.top + "," + button.style.left + "," + button.offsetHeight + "," + button.offsetWidth;
+                i++;
             }
 
+            saveTurnData(resolution, times, buttonsProperties);
             randomizeButtons();
         });
 
@@ -99,15 +107,16 @@ function randomizeButtons() {
 }
 
 function initializeColors() {
+    var color = checkCookie("prefColor") ? getCookie("prefColor") : "#95a5a6";
     for (const button of document.getElementsByClassName("button")) {
-        colorizeButton(button, "#95a5a6");
+        colorizeButton(button, color);
     }
 }
 
 function randomizeSize(button, index) {
 
-    var max_height = window.innerHeight / 3;
-    var max_width = (window.innerWidth / 6) / (index == 0 ? 2 : 1);
+    var max_height = window.innerHeight / 2;
+    var max_width = (window.innerWidth / 4) / (index == 0 ? 2 : 1);
 
     var randomHeight = Math.floor(Math.random() * max_height);
     button.style.height = Math.max(randomHeight, 25) + "px";
@@ -136,44 +145,6 @@ function randomizePosition(button, index) {
     button.style.left = Math.max(randomX, min_width + 20) + "px";
 }
 
-function trackStartPoint() {
-
-    var hand = document.createElement("IMG");
-    hand.setAttribute("class", "gif");
-    hand.setAttribute("style", "visibility: hidden;");
-    hand.setAttribute("onload", "timeDestroy(this)");
-
-    //https://stackoverflow.com/questions/58589941/pure-javascript-remove-element-on-mouseover
-    hand.addEventListener("mouseover", destroyOnHover);
-
-    document.body.appendChild(hand);
-
-    var button = document.getElementById("center-button");
-
-    hand.style.width = button.offsetWidth * .3;
-
-    var x = (parseInt(button.style.left.split("px")[0]) + button.offsetWidth / 1.5 + 20) - hand.offsetWidth / 2;
-    var y = (parseInt(button.style.top.split("px")[0]) + button.offsetHeight / 1.5 + 20) - hand.offsetHeight / 2;
-
-    hand.style.left = x;
-    hand.style.top = y;
-
-    // https://stackoverflow.com/questions/19831319/restart-a-gif-animation-without-reloading-the-file/24810221
-    hand.src = "media/hand_clicking.gif";
-    hand.style.visibility = "visible";
-}
-
-function destroyOnHover() {
-    event.target.parentNode.removeChild(event.target);
-}
-
-function timeDestroy(gif) {
-    sleep(1650).then(() => {
-        if (gif.parentNode != null)
-            gif.parentNode.removeChild(gif);
-    });
-}
-
 function colorizeButton(button, col) {
     button.style.backgroundColor = col
     var borderCol = adjust(col, -40);
@@ -182,11 +153,6 @@ function colorizeButton(button, col) {
     button.children[1].style.color = fontCol;
     var shapeCol = adjust(col, 40);
     button.children[0].style.backgroundColor = shapeCol;
-}
-
-// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-function sleep(time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
 }
 
 // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
