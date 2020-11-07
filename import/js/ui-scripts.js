@@ -3,7 +3,10 @@ var prevent_double_activation = true;
 var alreadyGreeted = false;
 
 function openLeaderboards() {
-    if (!checkUserName()) return;
+    if (!alreadyGreeted) {
+        checkUserName();
+    }
+    if (!alreadyGreeted) return;
     modal_alive = true;
     document.getElementById("Leaderboard_Modal").style.display = "block";
 }

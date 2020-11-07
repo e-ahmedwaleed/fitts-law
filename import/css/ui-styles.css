@@ -213,9 +213,35 @@ input:checked + .slider:before {
   right: 110;
 }
 
-#credits {
+/* Normal white Button as seen on Google.com*/
+.credits button {
+  color: #444444;
+  background: #f3f3f3;
+  border: 1px #dadada solid;
+  padding: 5px 10px;
+  border-radius: 2px;
   font-family: Calibri;
+  font-size: 10pt;
+  outline: none;
+}
+
+.credits button:hover {
+  border: 1px #c6c6c6 solid;
+  box-shadow: 1px 1px 1px #eaeaea;
+  color: #333333;
+  background: #f7f7f7;
+}
+
+.credits button:active {
+  box-shadow: inset 1px 1px 1px #dfdfdf;
+}
+
+.credits {
   position: fixed;
-  bottom: 10;
+  bottom: 5;
   right: 20;
+}
+
+#github {
+  vertical-align: top;
 }

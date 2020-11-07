@@ -36,7 +36,7 @@
         function refresh() { location.reload(); }
     </script>
 
-    <div class=" picker-wrapper" style="width: 372px;">
+    <div class="picker-wrapper" style="width: 372px;">
         <button class="btn btn-default">Select color</button>
         <div class="color-picker">
         </div>
@@ -72,22 +72,23 @@
         </div>
     </div>
 
-    <div class="button" id="center-button" onclick="lockButton(this,0)">
+    <div class="button" id="center-button" onmousedown="lockButton(this,0)">
         <div id="empty"><img src="media/dot.png" alt="" /></div>
         <a href="#" style="visibility: hidden;"><strong>1</strong></a>
     </div>
 
-    <div class="button" id="right-button" onclick="lockButton(this,1)">
+    <div class="button" id="right-button" onmousedown="lockButton(this,1)">
         <div id="right-arrow"><img src="media/right_arrow.png" alt="" /></div>
         <a href="#" style="visibility: hidden;" id="right-text"><strong>2</strong></a>
     </div>
 
-    <div class=" button" id="left-button" onclick="lockButton(this,2)">
+    <div class=" button" id="left-button" onmousedown="lockButton(this,2)">
         <div id="left-arrow"><img src="media/left_arrow.png" alt="" /></div>
         <a href="#" style="visibility: hidden;" id="left-text"><strong>3</strong></a>
     </div>
 
-    <div id="credits">Copyrights &#169; 2020 Ahmed Waleed</div>
+    <a href="https://github.com/EngAhmedWaleed/Fitts-Law" target="_blank" class="credits"><button>View on GitHub <img
+                src="media/github.png" id="github" height="14px" /></button></a>
 
 </body>
 
