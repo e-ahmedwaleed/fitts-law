@@ -46,7 +46,7 @@ function lockButton(button, index) {
 
     if (isClicked[0] && isClicked[1] && isClicked[2])
         sleep(500).then(() => {
-            var resolution = window.innerHeight + "," + window.innerWidth;
+            var resolution = window.innerHeight + "x" + window.innerWidth;
 
             // https://stackoverflow.com/questions/2024198/how-many-seconds-between-two-dates
             var times = [" ", " ", " "];
@@ -140,6 +140,7 @@ function randomizeSize(button, index) {
     }
 
     button.children[1].style.fontSize = 0.8 * Math.min(button.offsetHeight, button.offsetWidth);
+    button.children[0].children[0].style.width = Math.max(0.25 * Math.min(button.offsetHeight, button.offsetWidth), 20);
 }
 
 function randomizePosition(button, index) {
