@@ -1,2 +1,22 @@
 /*https://purifycss.online*/
-.gif{position:absolute;animation-name:FadeOutAnim;animation-duration:2s}@keyframes FadeOutAnim{0%{opacity:1}50%{opacity:.9}75%{opacity:.6}100%{display:none;opacity:0}}
+.gif {
+  position: absolute;
+  animation-name: FadeOutAnim;
+  animation-duration: 1750ms;
+}
+
+@keyframes FadeOutAnim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.6;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}

@@ -19,7 +19,7 @@
 
 </head>
 
-<body onload="randomizeButtons()">
+<body onload="initializeButtons()">
 
     <div class=" picker-wrapper" style="width: 372px;">
         <button class="btn btn-default">Select color</button>
@@ -27,12 +27,7 @@
         </div>
     </div>
 
-    <div class=" button" id="left-button" onclick="lockButton(this,2)" style="user-select: none;">
-        <div id="left-arrow"><img src="media/left_arrow.png" alt="" /></div>
-        <a href="#" style="visibility: hidden;" id="left-text"><strong>3</strong></a>
-    </div>
-
-    <div class="button" id="center-button" onclick="lockButton(this,0)" style="user-select: none; pointer-events: all;">
+    <div class="button" id="center-button" onclick="lockButton(this,0)" style="user-select: none;">
         <div id="empty"><img src="media/dot.png" alt="" /></div>
         <a href="#" style="visibility: hidden;"><strong>1</strong></a>
     </div>
@@ -40,6 +35,11 @@
     <div class="button" id="right-button" onclick="lockButton(this,1)" style="user-select: none;">
         <div id="right-arrow"><img src="media/right_arrow.png" alt="" /></div>
         <a href="#" style="visibility: hidden;" id="right-text"><strong>2</strong></a>
+    </div>
+
+    <div class=" button" id="left-button" onclick="lockButton(this,2)" style="user-select: none;">
+        <div id="left-arrow"><img src="media/left_arrow.png" alt="" /></div>
+        <a href="#" style="visibility: hidden;" id="left-text"><strong>3</strong></a>
     </div>
 
 </body>
