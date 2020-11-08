@@ -7,7 +7,7 @@ function trackStartPoint() {
     hand = document.createElement("IMG");
     hand.setAttribute("class", "gif");
     hand.setAttribute("style", "visibility: hidden;");
-    hand.setAttribute("onload", "timeDestroy(this)");
+    hand.setAttribute("onload", "timeDestroy(this, 1650)");
 
     //https://stackoverflow.com/questions/58589941/pure-javascript-remove-element-on-mouseover
     hand.addEventListener("mouseover", destroyOnHover);
@@ -37,10 +37,10 @@ function destroyOnHover() {
     event.target.parentNode.removeChild(event.target);
 }
 
-function timeDestroy(gif) {
-    sleep(1650).then(() => {
-        if (gif.parentNode != null)
-            gif.parentNode.removeChild(gif);
+function timeDestroy(item, time) {
+    sleep(time).then(() => {
+        if (item.parentNode != null)
+            item.parentNode.removeChild(item);
     });
 }
 

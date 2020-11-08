@@ -46,8 +46,6 @@ function lockButton(button, index) {
 
     if (isClicked[0] && isClicked[1] && isClicked[2])
         sleep(500).then(() => {
-            var resolution = window.innerHeight + "x" + window.innerWidth;
-
             // https://stackoverflow.com/questions/2024198/how-many-seconds-between-two-dates
             var times = [" ", " ", " "];
             times[0] = midTime.getTime() - startTime.getTime();
@@ -61,7 +59,7 @@ function lockButton(button, index) {
                 i++;
             }
 
-            saveTurnData(resolution, times, buttonsProperties);
+            saveTurnData(window.innerHeight, window.innerWidth, times, buttonsProperties);
             randomizeButtons();
         });
 
