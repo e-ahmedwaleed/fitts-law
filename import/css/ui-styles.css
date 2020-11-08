@@ -108,6 +108,12 @@ Size can also be negative; see how it's smaller than the element*/
   text-justify: inter-word;
 }
 
+div.li {
+  font-size: 16px;
+  font-family: Calibri;
+  text-align: justify;
+}
+
 /*Tool tip css*/
 .tooltip {
   top: 20;
