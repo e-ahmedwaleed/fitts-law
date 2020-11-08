@@ -1,8 +1,7 @@
---- #https://stackoverflow.com/questions/52688981/issues-with-the-format-of-cpanel-yml-file-when-trying-to-deploy-cpanel-git-repo
+---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/user/Subdomains/AW/fitts-law/
-    - /bin/cp index.html $DEPLOYPATH #Copy specific file to destination from root
-    - /bin cp /media/* $DEPLOYPATH #copy all from sub folder root
-    - /bin/cp -r /import/* $DEPLOYPATH #copy all from sub folder root (-r recursive)
-
+    - export DEPLOYPATH=/home/csed22/Subdomains/AW/fitts-law/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp -R media $DEPLOYPATH
+    - /bin/cp -R import $DEPLOYPATH
