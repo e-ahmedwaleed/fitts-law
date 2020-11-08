@@ -18,8 +18,8 @@ function trackStartPoint() {
 
     hand.style.width = button.offsetWidth * .3;
 
-    var x = (parseInt(button.style.left.split("px")[0]) + button.offsetWidth / 1.5 + 20) - hand.offsetWidth / 2;
-    var y = (parseInt(button.style.top.split("px")[0]) + button.offsetHeight / 1.5 + 20) - hand.offsetHeight / 2;
+    var x = (parsePixelPropertyValue(button.style.left) + button.offsetWidth / 1.5 + 20) - hand.offsetWidth / 2;
+    var y = (parsePixelPropertyValue(button.style.top) + button.offsetHeight / 1.5 + 20) - hand.offsetHeight / 2;
 
     hand.style.left = x;
     hand.style.top = y;
@@ -27,6 +27,10 @@ function trackStartPoint() {
     // https://stackoverflow.com/questions/19831319/restart-a-gif-animation-without-reloading-the-file/24810221
     hand.src = "media/hand_clicking.gif";
     hand.style.visibility = "visible";
+}
+
+function parsePixelPropertyValue(property) {
+    return parseInt(property.split("px")[0]);
 }
 
 function destroyOnHover() {

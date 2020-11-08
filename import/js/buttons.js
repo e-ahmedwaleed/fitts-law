@@ -57,7 +57,7 @@ function lockButton(button, index) {
             var i = 0;
             var buttonsProperties = [" ", " ", " "];
             for (const button of document.getElementsByClassName("button")) {
-                buttonsProperties[i] = button.style.top + "," + button.style.left + "," + button.offsetHeight + "," + button.offsetWidth;
+                buttonsProperties[i] = parsePixelPropertyValue(button.style.top) + "," + parsePixelPropertyValue(button.style.left) + "," + button.offsetHeight + "," + button.offsetWidth;
                 i++;
             }
 
@@ -130,7 +130,7 @@ function initializeColors() {
 
 var forbidden_margin = 20;
 var forbidden_top = 140;
-var forbidden_bottom = 90;
+var forbidden_bottom = 71;
 
 function randomizeSize(button, index) {
 

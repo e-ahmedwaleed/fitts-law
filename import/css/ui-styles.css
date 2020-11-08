@@ -238,7 +238,7 @@ input:checked + .slider:before {
 
 .credits {
   position: fixed;
-  bottom: 20;
+  bottom: 10;
   right: 20;
 }
 
