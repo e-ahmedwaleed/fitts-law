@@ -128,17 +128,21 @@ function initializeColors() {
     }
 }
 
+var forbidden_margin = 20;
+var forbidden_top = 140;
+var forbidden_bottom = 90;
+
 function randomizeSize(button, index) {
 
-    var max_width = (window.innerWidth / 4) - 20;
+    var max_width = (window.innerWidth / 4) - forbidden_margin;
 
-    button.style.height = window.innerHeight - 200;
+    button.style.height = window.innerHeight - (forbidden_top + forbidden_bottom);
 
     var randomWidth = Math.floor(Math.random() * max_width);
     button.style.width = Math.max(randomWidth, 25) + "px";
 
     if (_2D)
-        button.style.height = Math.max(Math.floor(Math.random() * (window.innerHeight - 200)), 30);
+        button.style.height = Math.max(Math.floor(Math.random() * (window.innerHeight - (forbidden_top + forbidden_bottom))), 30);
 
     if (index == 0) {
         button.style.width = window.innerWidth / 8;
@@ -155,21 +159,21 @@ function randomizePosition(button, index) {
     var max_width = window.innerWidth;
     var min_width = max_width * index / 3;
 
-    var max_height = window.innerHeight - button.offsetHeight - 20 - 60;
+    var max_height = window.innerHeight - button.offsetHeight - (forbidden_margin + forbidden_bottom);
 
     var randomY = max_height;
     if (_2D)
         randomY = Math.floor(Math.random() * max_height);
-    button.style.top = Math.max(randomY, 140) + "px";
+    button.style.top = Math.max(randomY, forbidden_top) + "px";
 
-    var randomX = min_width - (button.offsetWidth + 20) + Math.floor(Math.random() * (max_width / 3));
-    button.style.left = Math.max(randomX, min_width + 20) + "px";
+    var randomX = min_width - (button.offsetWidth + forbidden_margin) + Math.floor(Math.random() * (max_width / 3));
+    button.style.left = Math.max(randomX, min_width + forbidden_margin) + "px";
 
     if (index == 1) {
-        button.style.top = window.innerHeight / 2 - (button.offsetHeight + 20) / 2;
-        button.style.left = window.innerWidth / 2 - (button.offsetWidth + 20) / 2;
+        button.style.top = window.innerHeight / 2 - (button.offsetHeight + forbidden_margin) / 2;
+        button.style.left = window.innerWidth / 2 - (button.offsetWidth + forbidden_margin) / 2;
     } else if (index == 2) {
-        button.style.left = Math.max(randomX - 20, min_width + 20) + "px";
+        button.style.left = Math.max(randomX - forbidden_margin, min_width + forbidden_margin) + "px";
     }
 }
 
