@@ -3,5 +3,6 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/csed22/Subdomains/AW/fitts-law/
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp image.jpg $DEPLOYPATH
     - /bin/cp -R media $DEPLOYPATH
     - /bin/cp -R import $DEPLOYPATH
