@@ -1,4 +1,4 @@
-# Changes
+# Overview
 
 ![Fitts Law in Acion](/src/in-action.png)
 
@@ -13,8 +13,8 @@
 [jillix](https://www.cssscript.com/tiny-javascript-color-picker-library-piklor-js/): Color picker.\
 [Laurence Muller](https://youtu.be/l87VTAV4eLE): Multitouch experiment.\
 \
-[Wylde Studios](https://giphy.com/wyldestudios), [ultimatearm](https://www.flaticon.com/authors/ultimatearm), [makyzz](https://youtu.be/l87VTAV4eLE), [pngegg](https://www.pngegg.com/en/png-wynug): Vectors and Arts.\
+[Wylde Studios](https://giphy.com/wyldestudios), [ultimatearm](https://www.flaticon.com/authors/ultimatearm), [makyzz](https://www.freepik.com/makyzz), [pngegg](https://www.pngegg.com/en/png-wynug): Vectors and Arts.
 
-## Test it your self!
+## Test it yourself!
 
 [Fitts Law Experiment](https://ahmedwaleed.csed22.com/fitts-law/)
