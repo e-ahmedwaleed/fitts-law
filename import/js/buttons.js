@@ -239,6 +239,7 @@ function fullUnlock() {
     var dummy_tooltip = document.getElementsByClassName("count-down")[0].parentNode.parentNode;
     dummy_tooltip.parentNode.removeChild(dummy_tooltip);
     document.getElementsByClassName("picker-wrapper")[0].style.pointerEvents = "auto";
+    num_of_count_downs--;
 
     var tooltip_text = document.getElementsByClassName("count-down")[0].parentNode;
     tooltip_text.parentNode.removeChild(tooltip_text);
