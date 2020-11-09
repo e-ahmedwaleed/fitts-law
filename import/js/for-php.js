@@ -1,5 +1,5 @@
 function saveTurnData(resolutionH, resolutionW, times, buttonsProperties) {
-    var userName = checkCookie("username") ? getCookie("username") : "anonymous";
+    var userName = checkCookie("userName") ? getCookie("userName") : "anonymous";
     var ip = checkCookie("userIP") ? getCookie("userIP") : "...";
 
     var url_args = "?";

@@ -13,17 +13,19 @@ function openLeaderboards() {
 
 function checkUserName() {
     if (alreadyGreeted) return;
-    var user = getCookie("username");
+    var user = getCookie("userName");
     if (user != "") {
         alreadyGreeted = true;
         alert("Welcome again " + user + ".");
+        loadModaliFrames();
     } else {
         user = prompt("Please enter your name:", "");
         if (user != "" && user != null) {
-            setCookie("username", user, 365);
+            setCookie("userName", user, 365);
             alreadyGreeted = true;
+            loadModaliFrames();
         }
-    }
+    }   
 }
 
 function is2DEnabled() {

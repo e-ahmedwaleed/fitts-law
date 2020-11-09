@@ -22,7 +22,9 @@
     <script src="import/js/hints.js"></script>
     <script src="import/js/for-php.js"></script>
     <script src="import/js/cookies.js"></script>
+    <script src="import/js/leaderboard.js"></script>
     <script src="import/js/ui-scripts.js"></script>
+    <script src="import/js/stopwatch.js"></script>
     <script src="import/js/buttons.js"></script>
     <script src="import/piklor/min.js"></script>
     <script src="import/piklor/color-picker.js"></script>
@@ -46,11 +48,34 @@
         function refresh() { location.reload(); }
     </script>
 
-    <div class="picker-wrapper" style="width: 372px;">
+    <div class="picker-wrapper" style="width: 372px; pointer-events: none;">
         <button class="btn btn-default">Select color</button>
         <div class="color-picker">
         </div>
+
     </div>
+    <div class="tooltip" style="top: 29; left:29;">
+        <img src="media/blank.png" /><span class="tooltiptext" style="width: 165px; top: 40; left: 10;">Unlocks
+            after <span class="count-down">5</span> rounds.</span>
+    </div>
+
+    <!--div class="tooltip" style="top: 90; right: 407;">
+        <label id="enable_2D_label">
+            2D Experiment:
+        </label><span class="tooltiptext" style="width: 150px;">Unlocks after <span class="count-down">10</span> rounds.</span>
+    </div>
+
+    <label class="switch" id="enable_2D" style="pointer-events: none;">
+        <input type="checkbox" onchange="randomizeButtons()">
+        <span class="slider round"></span>
+    </label>
+
+    <div class="tooltip" style="right: 282;">
+        <!--onclick="openLeaderboards()>
+        <img class=" raise" id="leaderboard" src="media/trophy-locked.png" alt="Leaderboard" /><span class="tooltiptext"
+            style="width: 160px;">Unlocks after <span class="count-down">20</span> rounds.</span>
+        <!--Check leaderboards.>
+    </div-->
 
     <label id="enable_2D_label">
         2D Experiment:
@@ -74,8 +99,22 @@
             <div class="modal-body">
                 <br>
                 <ul>
-                    <li class="modal-inside">Coming soon ...</li>
-                    <div class="li">Your progress is not wasted and will be compared with others.</div>
+                    <li class="modal-inside">Highscores:</li>
+                    <div id="highscores" style="overflow: hidden; text-align: center; "></div>
+                    <br>
+                    <li class="modal-inside">Respone Accuracy in one-dimensional task space:</li>
+                    <div id="results-1d" style="overflow: hidden; text-align: center; "></div>
+                    <br>
+                    <li class="modal-inside">Respone Accuracy in two-dimensional task space:</li>
+                    <div id="results-2d" style="overflow: hidden; text-align: center; "></div>
+                    <br>
+                    <li class="modal-inside">Devoloped by: Ahmed Waleed.</li>
+                    <div class="li">More features are coming soon... Feel free to play around your progress is never
+                        wasted.</div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <br>
                 </ul>
             </div>
@@ -97,8 +136,10 @@
         <a href="#" style="visibility: hidden;" id="left-text"><strong>3</strong></a>
     </div>
 
-    <a href="https://github.com/EngAhmedWaleed/Fitts-Law" target="_blank" class="credits"><button>View on GitHub <img
-                src="media/github.png" id="github" height="14px" /></button></a>
+    <div class="credits" style="left:28;">Time: <span id="time"></span></div>
+
+    <a href="https://github.com/EngAhmedWaleed/Fitts-Law" target="_blank" class="credits"><button>View on GitHub
+            <img src="media/github.png" id="github" height="14px" /></button></a>
 
 </body>
 

@@ -9,8 +9,9 @@ function lockButton(button, index) {
     switch (index) {
         case 0: // if center, start timer and remove hand if existed.
             startTime = new Date();
+            startStopWatch();
             var hand = document.getElementsByClassName("gif")[0];
-            if (hand != null)
+            if (hand != null && hand.parentNode != null)
                 hand.parentNode.removeChild(hand);
             break;
         case 1: // if right, check center.
@@ -22,6 +23,7 @@ function lockButton(button, index) {
             if (!(isClicked[0] && isClicked[1]))
                 return;
             endTime = new Date();
+            stop(); // stopwatch
             break;
     }
 
@@ -44,7 +46,8 @@ function lockButton(button, index) {
             break;
     }
 
-    if (isClicked[0] && isClicked[1] && isClicked[2])
+    if (isClicked[0] && isClicked[1] && isClicked[2]) {
+        difficulty -= 1;
         sleep(500).then(() => {
             // https://stackoverflow.com/questions/2024198/how-many-seconds-between-two-dates
             var times = [" ", " ", " "];
@@ -62,7 +65,7 @@ function lockButton(button, index) {
             saveTurnData(window.innerHeight, window.innerWidth, times, buttonsProperties);
             randomizeButtons();
         });
-
+    }
 }
 
 function unlockButton(button, index) {
@@ -89,6 +92,7 @@ function initializeButtons() {
     initializeColors();
     checkInitialState();
     randomizeButtons();
+    showStopWatch();
 }
 
 var _2D = false;
@@ -126,29 +130,38 @@ function initializeColors() {
     }
 }
 
+var difficulty = 100;
 var forbidden_margin = 20;
 var forbidden_top = 140;
 var forbidden_bottom = 71;
 
 function randomizeSize(button, index) {
 
-    var max_width = (window.innerWidth / 4) - forbidden_margin;
+    difficulty_factor = difficulty / 100;
+
+    if (difficulty_factor == 1) {
+        difficulty = checkCookie("difficulity") ? getCookie("difficulity") : 100;
+        difficulty_factor = difficulty / 100;
+    }
+    else if (difficulty % 10 == 0)
+        setCookie("difficulity", difficulty, 1);
 
     button.style.height = window.innerHeight - (forbidden_top + forbidden_bottom);
 
-    var randomWidth = Math.floor(Math.random() * max_width);
-    button.style.width = Math.max(randomWidth, 25) + "px";
+    var max_width = (window.innerWidth / 4) - forbidden_margin;
+    var randomWidth = Math.floor(difficulty_factor * Math.random() * max_width);
+    button.style.width = Math.max(randomWidth, 15) + "px";
 
     if (_2D)
-        button.style.height = Math.max(Math.floor(Math.random() * (window.innerHeight - (forbidden_top + forbidden_bottom))), 30);
+        button.style.height = Math.max(Math.floor(difficulty_factor * Math.random() * (window.innerHeight - (forbidden_top + forbidden_bottom))), 15);
 
     if (index == 0) {
-        button.style.width = window.innerWidth / 8;
+        button.style.width = Math.max(difficulty_factor * window.innerWidth / 8, 15);
         button.style.height = button.style.width;
     }
 
     button.children[1].style.fontSize = 0.8 * Math.min(button.offsetHeight, button.offsetWidth);
-    button.children[0].children[0].style.width = Math.max(0.25 * Math.min(button.offsetHeight, button.offsetWidth), 20);
+    button.children[0].children[0].style.width = Math.max(0.25 * Math.min(button.offsetHeight, button.offsetWidth), 10);
 }
 
 function randomizePosition(button, index) {
