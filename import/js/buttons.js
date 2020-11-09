@@ -93,7 +93,7 @@ function initializeButtons() {
     initializeColors();
     randomizeButtons();
     showStopWatch();
-    if (getCookie("fullyUnlocked") == 1)
+    if (checkCookie("userName"))
         fullUnlock();
 }
 
@@ -231,7 +231,6 @@ function checkUnlockables() {
             var tooltip_text = document.getElementsByClassName("count-down")[0].parentNode;
             tooltip_text.parentNode.removeChild(tooltip_text);
             num_of_count_downs--;
-            setCookie("fullyUnlocked", 1, 1);
             break;
     }
 }
