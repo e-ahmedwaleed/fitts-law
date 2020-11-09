@@ -48,6 +48,7 @@ function lockButton(button, index) {
 
     if (isClicked[0] && isClicked[1] && isClicked[2]) {
         difficulty -= 1;
+        checkUnlockables();
         sleep(500).then(() => {
             // https://stackoverflow.com/questions/2024198/how-many-seconds-between-two-dates
             var times = [" ", " ", " "];
@@ -90,9 +91,10 @@ function unlockButton(button, index) {
 
 function initializeButtons() {
     initializeColors();
-    checkInitialState();
     randomizeButtons();
     showStopWatch();
+    if (getCookie("fullyUnlocked") == 1)
+        fullUnlock();
 }
 
 var _2D = false;
@@ -100,10 +102,6 @@ var _2D = false;
 function randomizeButtons() {
     var i = 0;
     _2D = is2DEnabled();
-    if (_2D)
-        setCookie("_2D", "1", 1);
-    else
-        setCookie("_2D", "0", 1);
 
     var buttons = document.getElementsByClassName("button")
     for (const button of buttons) {
@@ -124,7 +122,7 @@ function randomizeButtons() {
 }
 
 function initializeColors() {
-    var color = checkCookie("prefColor") ? getCookie("prefColor") : "#95a5a6";
+    var color = "#95a5a6";
     for (const button of document.getElementsByClassName("button")) {
         colorizeButton(button, color);
     }
@@ -138,13 +136,6 @@ var forbidden_bottom = 71;
 function randomizeSize(button, index) {
 
     difficulty_factor = difficulty / 100;
-
-    if (difficulty_factor == 1) {
-        difficulty = checkCookie("difficulity") ? getCookie("difficulity") : 100;
-        difficulty_factor = difficulty / 100;
-    }
-    else if (difficulty % 10 == 0)
-        setCookie("difficulity", difficulty, 1);
 
     button.style.height = window.innerHeight - (forbidden_top + forbidden_bottom);
 
@@ -201,4 +192,64 @@ function colorizeButton(button, col) {
 // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
 function adjust(color, amount) {
     return '#' + color.replace(/^#/, '').replace(/../g, color => ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
+}
+
+var num_of_count_downs = 3;
+
+function checkUnlockables() {
+    if (num_of_count_downs <= 0) return;
+
+    var count_downs = document.getElementsByClassName("count-down");
+
+    if (difficulty > 95) {
+        count_downs[num_of_count_downs - 3].innerHTML = difficulty - 95;
+    }
+    if (difficulty > 90) {
+        count_downs[num_of_count_downs - 2].innerHTML = difficulty - 90;
+    }
+    if (difficulty > 80) {
+        count_downs[num_of_count_downs - 1].innerHTML = difficulty - 80;
+    }
+
+    switch (difficulty) {
+        case 95:
+            var dummy_tooltip = document.getElementsByClassName("count-down")[0].parentNode.parentNode;
+            dummy_tooltip.parentNode.removeChild(dummy_tooltip);
+            document.getElementsByClassName("picker-wrapper")[0].style.pointerEvents = "auto";
+            num_of_count_downs--;
+            break;
+        case 90:
+            var tooltip_text = document.getElementsByClassName("count-down")[0].parentNode;
+            tooltip_text.parentNode.removeChild(tooltip_text);
+            document.getElementById("enable_2D").style.pointerEvents = "auto";
+            num_of_count_downs--;
+            break;
+        case 80:
+            var leaderboard = document.getElementById("leaderboard");
+            leaderboard.setAttribute("src", "media/trophy.png");
+            leaderboard.setAttribute("onclick", "openLeaderboards()");
+            var tooltip_text = document.getElementsByClassName("count-down")[0].parentNode;
+            tooltip_text.parentNode.removeChild(tooltip_text);
+            num_of_count_downs--;
+            setCookie("fullyUnlocked", 1, 1);
+            break;
+    }
+}
+
+function fullUnlock() {
+    var dummy_tooltip = document.getElementsByClassName("count-down")[0].parentNode.parentNode;
+    dummy_tooltip.parentNode.removeChild(dummy_tooltip);
+    document.getElementsByClassName("picker-wrapper")[0].style.pointerEvents = "auto";
+
+    var tooltip_text = document.getElementsByClassName("count-down")[0].parentNode;
+    tooltip_text.parentNode.removeChild(tooltip_text);
+    document.getElementById("enable_2D").style.pointerEvents = "auto";
+    num_of_count_downs--;
+
+    var leaderboard = document.getElementById("leaderboard");
+    leaderboard.setAttribute("src", "media/trophy.png");
+    leaderboard.setAttribute("onclick", "openLeaderboards()");
+    var tooltip_text = document.getElementsByClassName("count-down")[0].parentNode;
+    tooltip_text.parentNode.removeChild(tooltip_text);
+    num_of_count_downs--;
 }

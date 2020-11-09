@@ -25,20 +25,13 @@ function checkUserName() {
             alreadyGreeted = true;
             loadModaliFrames();
         }
-    }   
+    }
 }
 
 function is2DEnabled() {
     var box = document.getElementById("enable_2D")
     return box.children[0].checked;
 }
-
-function checkInitialState() {
-    var box = document.getElementById("enable_2D")
-    if (checkCookie("_2D"))
-        box.children[0].checked = (getCookie("_2D") == "1");
-}
-
 
 // When the user clicks anywhere outside of the active modal, close it
 window.onclick = function (event) {
