@@ -1,10 +1,8 @@
 function trackStartPoint() {
 
-    var hand = document.getElementsByClassName("gif")[0];
-    if (hand != null && hand.parentNode != null)
-        hand.parentNode.removeChild(hand);
+    removeCurrentHintHand();
 
-    hand = document.createElement("IMG");
+    var hand = document.createElement("IMG");
     hand.setAttribute("class", "gif");
     hand.setAttribute("style", "visibility: hidden;");
     hand.setAttribute("onload", "timeDestroy(this, 1650)");
@@ -29,22 +27,12 @@ function trackStartPoint() {
     hand.style.visibility = "visible";
 }
 
-function parsePixelPropertyValue(property) {
-    return parseInt(property.split("px")[0]);
+function removeCurrentHintHand() {
+    var hand = document.getElementsByClassName("gif")[0];
+    destroy(hand);
 }
 
 function destroyOnHover() {
-    event.target.parentNode.removeChild(event.target);
+    destroy(event.target);
 }
 
-function timeDestroy(item, time) {
-    sleep(time).then(() => {
-        if (item.parentNode != null)
-            item.parentNode.removeChild(item);
-    });
-}
-
-// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-function sleep(time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-}

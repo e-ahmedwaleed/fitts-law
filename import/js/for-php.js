@@ -1,3 +1,7 @@
+var startTime;
+var midTime;
+var endTime;
+
 function saveTurnData(resolutionH, resolutionW, times, buttonsProperties) {
     var userName = checkCookie("userName") ? getCookie("userName") : "anonymous";
     var ip = checkCookie("userIP") ? getCookie("userIP") : "...";
