@@ -16,7 +16,7 @@ function saveTurnData(resolutionH, resolutionW, times, buttonsProperties) {
     url_args += ("point2=" + buttonsProperties[1] + "&");
     url_args += ("point3=" + buttonsProperties[2]);
 
-    var url = "https://ahmedwaleed.csed22.com/fitts-law/results/";
+    var url = "https://ahmedwaleed.com/custom/fitts-law/results/";
 
     iFrame = document.createElement("iframe");
     iFrame.setAttribute('src', url + url_args);

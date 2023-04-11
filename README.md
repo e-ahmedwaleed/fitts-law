@@ -17,4 +17,4 @@
 
 ## Test it yourself!
 
-[Fitts Law Experiment](https://ahmedwaleed.csed22.com/fitts-law/)
+[Fitts Law Experiment](https://ahmedwaleed.com/projects/fitts-law/)

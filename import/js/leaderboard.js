@@ -1,12 +1,12 @@
 function loadModaliFrames() {
 
-    highscores = getBorderlessiFrame("https://ahmedwaleed.csed22.com/fitts-law/results/leaderboard/?embed");
+    highscores = getBorderlessiFrame("https://ahmedwaleed.com/custom/fitts-law/results/leaderboard/?embed");
     document.getElementById("highscores").appendChild(highscores);
 
-    results_1d = getBorderlessiFrame("https://ahmedwaleed.csed22.com/fitts-law/results/plot-1D.html?embed");
+    results_1d = getBorderlessiFrame("https://ahmedwaleed.com/custom/fitts-law/results/plot-1D.html?embed");
     document.getElementById("results-1d").appendChild(results_1d);
 
-    results_2d = getBorderlessiFrame("https://ahmedwaleed.csed22.com/fitts-law/results/plot-2D.html?embed");
+    results_2d = getBorderlessiFrame("https://ahmedwaleed.com/custom/fitts-law/results/plot-2D.html?embed");
     document.getElementById("results-2d").appendChild(results_2d);
 
 }
